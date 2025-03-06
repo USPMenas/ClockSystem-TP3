@@ -1,6 +1,7 @@
 ![](https://github.com/USPMenas/ClockSystem-TP3/actions/workflows/gradle.yml/badge.svg)  ![CodeQL](https://github.com/USPMenas/ClockSystem-TP3/actions/workflows/codeql.yml/badge.svg)
 
-![CodeQL](https://github.com/USPMenas/ClockSystem-TP3/actions/workflows/pmd.yml/badge.svg)
+![CodeQL](https://github.com/USPMenas/ClockSystem-TP3/actions/workflows/pmd.yml/badge.svg) ![OpenSSF Scorecard](https://github.com/USPMenas/ClockSystem-TP3/actions/workflows/scorecard.yml/badge.svg)
+
 
 # ClockSystem
 
