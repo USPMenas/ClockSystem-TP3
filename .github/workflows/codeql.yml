@@ -16,8 +16,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  # schedule:
-  #   - cron: '25 21 * * 3'
+  schedule:
+    - cron: '25 21 * * 3'
 
 jobs:
   analyze:
@@ -30,6 +30,7 @@ jobs:
     runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
     permissions:
       # required for all workflows
+      contents: read
       security-events: write
 
       # required to fetch internal or private CodeQL packs
@@ -53,7 +54,7 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: ${{ matrix.language }}
+        languages: 'java'
         build-mode: ${{ matrix.build-mode }}
         queries: security-experimental,security-extended,security-and-quality
 
@@ -76,4 +77,4 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
-        category: "/language:${{matrix.language}}"
+        category: "/language:java"
