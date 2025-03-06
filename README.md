@@ -1,5 +1,7 @@
 ![](https://github.com/USPMenas/ClockSystem-TP3/actions/workflows/gradle.yml/badge.svg)
 
+![CodeQL](https://github.com/USPMenas/ClockSystem-TP3/actions/workflows/codeql-analysis.yml/badge.svg)
+
 # ClockSystem
 
 This is a gradle-based Java project for a Clock with Swing GUI and JUnit5 unit tests. It has been created and used by Tom Mens for educational purposes at the University of Mons.
