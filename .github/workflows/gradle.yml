@@ -42,11 +42,6 @@ jobs:
      
     - name: Start Xvfb
       run: Xvfb $DISPLAY-ac-screen 0 1600x1200x24 > /dev/null 2>&1 & 
-
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@<VERSION OR BRANCH OR TAG OR SHA>
-      with:
-        gradle-version: ’’<GRADLE VERSION>’’
     
     - name: Build with Gradle 8.10
       run: gradle build
