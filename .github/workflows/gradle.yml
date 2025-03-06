@@ -19,6 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+     DISPLAY: ":99.0" # Set a display for Xvfb
+
+    services:
+      xvfb:
+        image: selenium/standalone-chrome:latest
+        options: -e VNC_SERVER=true -e VNC_PORT=5900
 
     steps:
     - uses: actions/checkout@v4
@@ -32,6 +39,14 @@ jobs:
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
       with:
         gradle-version: '8.10'
+     
+    - name: Start Xvfb
+      run: Xvfb $DISPLAY-ac-screen 0 1600x1200x24 > /dev/null 2>&1 & 
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@<VERSION OR BRANCH OR TAG OR SHA>
+      with:
+        gradle-version: ’’<GRADLE VERSION>’’
     
     - name: Build with Gradle 8.10
       run: gradle build
@@ -40,7 +55,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Test Reports
-        path: build/reports/tests/
+        path: app/build/reports/tests/
+    
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
